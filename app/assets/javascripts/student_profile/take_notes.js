@@ -66,7 +66,7 @@
     getInitialState: function() {
       return {
         eventNoteTypeId: null,
-        text: null,
+        text: '',
         attachmentUrls: []
       }
     },
