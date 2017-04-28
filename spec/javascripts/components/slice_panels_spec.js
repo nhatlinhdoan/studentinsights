@@ -1,3 +1,5 @@
+import SpecSugar from '../support/spec_sugar.js';
+
 //= require ../fixtures/fixture_constant_indexes
 //= require ../fixtures/fixture_students
 
@@ -6,7 +8,7 @@ describe('SlicePanels', function() {
   var createEl = window.shared.ReactHelpers.createEl;
   var merge = window.shared.ReactHelpers.merge;
 
-  var SpecSugar = window.shared.SpecSugar;
+  
   var SlicePanels = window.shared.SlicePanels;
   var FixtureConstantIndexes = window.shared.FixtureConstantIndexes;
   var FixtureStudents = window.shared.FixtureStudents;

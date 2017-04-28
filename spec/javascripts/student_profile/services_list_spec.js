@@ -1,3 +1,4 @@
+import SpecSugar from '../support/spec_sugar.js';
 //= require ./fixtures
 
 describe('ServicesList', function() {
@@ -5,7 +6,6 @@ describe('ServicesList', function() {
   var createEl = window.shared.ReactHelpers.createEl;
   var merge = window.shared.ReactHelpers.merge;
 
-  var SpecSugar = window.shared.SpecSugar;
   var ServicesList = window.shared.ServicesList;
   var fromPair = window.shared.fromPair;
   var Fixtures = window.shared.Fixtures;

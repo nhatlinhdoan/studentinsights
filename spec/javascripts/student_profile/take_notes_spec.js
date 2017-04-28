@@ -1,12 +1,13 @@
 //= require ./fixtures
+import SpecSugar from '../support/spec_sugar.js';
 import TakeNotes from '../../../app/assets/javascripts/student_profile/take_notes.jsx';
+
 
 describe('TakeNotes', function() {
   var createEl = window.shared.ReactHelpers.createEl;
   var merge = window.shared.ReactHelpers.merge;
 
   
-  var SpecSugar = window.shared.SpecSugar;
   var Fixtures = window.shared.Fixtures;
   var eventNotesFixture = [
     {"id":4,

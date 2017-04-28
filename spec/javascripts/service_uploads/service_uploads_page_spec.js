@@ -1,9 +1,10 @@
+import SpecSugar from '../support/spec_sugar.js';
+
 describe('ServiceUploadsPage', function() {
   var dom = window.shared.ReactHelpers.dom;
   var createEl = window.shared.ReactHelpers.createEl;
   var merge = window.shared.ReactHelpers.merge;
 
-  var SpecSugar = window.shared.SpecSugar;
   var ServiceUploadsPage = window.shared.ServiceUploadsPage;
 
   var helpers = {

@@ -1,12 +1,12 @@
+import SpecSugar from '../support/spec_sugar.jsx';
+
 //= require ../fixtures/fixture_constant_indexes
 //= require ../fixtures/fixture_students
 
 describe('SliceButtons', function() {
-  var dom = window.shared.ReactHelpers.dom;
   var createEl = window.shared.ReactHelpers.createEl;
   var merge = window.shared.ReactHelpers.merge;
-
-  var SpecSugar = window.shared.SpecSugar;
+  
   var SliceButtons = window.shared.SliceButtons;
   var FixtureConstantIndexes = window.shared.FixtureConstantIndexes;
   var FixtureStudents = window.shared.FixtureStudents;

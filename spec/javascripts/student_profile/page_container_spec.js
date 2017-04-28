@@ -1,3 +1,4 @@
+import SpecSugar from '../support/spec_sugar.js';
 //= require ./fixtures
 
 describe('PageContainer', function() {
@@ -5,7 +6,6 @@ describe('PageContainer', function() {
   var createEl = window.shared.ReactHelpers.createEl;
   var merge = window.shared.ReactHelpers.merge;
 
-  var SpecSugar = window.shared.SpecSugar;
   var PageContainer = window.shared.PageContainer;
   var Fixtures = window.shared.Fixtures;
 

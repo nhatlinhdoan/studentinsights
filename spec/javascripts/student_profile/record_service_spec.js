@@ -1,12 +1,12 @@
+import SpecSugar from '../support/spec_sugar.js';
+
 //= require ./fixtures
 
 describe('RecordService', function() {
-  var dom = window.shared.ReactHelpers.dom;
   var createEl = window.shared.ReactHelpers.createEl;
   var merge = window.shared.ReactHelpers.merge;
 
   var RecordService = window.shared.RecordService;
-  var SpecSugar = window.shared.SpecSugar;
   var Fixtures = window.shared.Fixtures;
 
   var helpers = {

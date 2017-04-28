@@ -1,13 +1,12 @@
+import SpecSugar from '../support/spec_sugar.js';
 //= require ./fixtures
 
 describe('NotesDetails', function() {
-  var dom = window.shared.ReactHelpers.dom;
   var createEl = window.shared.ReactHelpers.createEl;
   var merge = window.shared.ReactHelpers.merge;
 
   var NotesDetails = window.shared.NotesDetails;
   var Fixtures = window.shared.Fixtures;
-  var SpecSugar = window.shared.SpecSugar;
 
   var helpers = {
     renderInto: function(el, props) {

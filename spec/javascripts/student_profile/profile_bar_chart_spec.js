@@ -1,8 +1,9 @@
+import SpecSugar from '../support/spec_sugar.js';
+
 describe('ProfileBarCharts', function() {
   var ProfileBarChart = window.shared.ProfileBarChart;
   var createEl = window.shared.ReactHelpers.createEl;
   var merge = window.shared.ReactHelpers.merge;
-  var SpecSugar = window.shared.SpecSugar;
 
   var helpers = {
     renderInto: function(el, props) {

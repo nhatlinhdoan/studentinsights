@@ -1,11 +1,10 @@
+import SpecSugar from '../support/spec_sugar.js';
 //= require ./fixtures
 
 describe('RestrictedNotesPageContainer', function() {
-  var dom = window.shared.ReactHelpers.dom;
   var createEl = window.shared.ReactHelpers.createEl;
   var merge = window.shared.ReactHelpers.merge;
 
-  var SpecSugar = window.shared.SpecSugar;
   var Fixtures = window.shared.Fixtures;
   var RestrictedNotesPageContainer = window.shared.RestrictedNotesPageContainer;
 

@@ -1,11 +1,9 @@
+import SpecSugar from '../support/spec_sugar.js';
 //= require ./fixtures
 
 describe('StudentProfilePage', function() {
-  var dom = window.shared.ReactHelpers.dom;
   var createEl = window.shared.ReactHelpers.createEl;
-  var merge = window.shared.ReactHelpers.merge;
 
-  var SpecSugar = window.shared.SpecSugar;
   var Fixtures = window.shared.Fixtures;
   var PageContainer = window.shared.PageContainer;
   var StudentProfilePage = window.shared.StudentProfilePage;

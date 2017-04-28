@@ -1,3 +1,4 @@
+import SpecSugar from '../support/spec_sugar.js';
 //= require ./fixtures
 
 describe('NoteCard', function() {
@@ -5,7 +6,6 @@ describe('NoteCard', function() {
   var createEl = window.shared.ReactHelpers.createEl;
   var merge = window.shared.ReactHelpers.merge;
 
-  var SpecSugar = window.shared.SpecSugar;
   var NoteCard = window.shared.NoteCard;
   var Fixtures = window.shared.Fixtures;
   var moment = window.moment;

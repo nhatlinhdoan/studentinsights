@@ -1,10 +1,10 @@
+import SpecSugar from '../support/spec_sugar.js';
+
 describe('ProfileDetails', function() {
-  var dom = window.shared.ReactHelpers.dom;
   var createEl = window.shared.ReactHelpers.createEl;
   var merge = window.shared.ReactHelpers.merge;
 
   var ProfileDetails = window.shared.ProfileDetails;
-  var SpecSugar = window.shared.SpecSugar;
 
   var helpers = {
     renderInto: function(el, props) {
