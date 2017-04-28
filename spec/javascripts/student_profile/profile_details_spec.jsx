@@ -1,9 +1,8 @@
 import SpecSugar from '../support/spec_sugar.jsx';
 
 describe('ProfileDetails', function() {
-  const createEl = window.shared.ReactHelpers.createEl;
   const merge = window.shared.ReactHelpers.merge;
-
+  const ReactDOM = window.ReactDOM;
   const ProfileDetails = window.shared.ProfileDetails;
 
   const helpers = {
@@ -39,7 +38,7 @@ describe('ProfileDetails', function() {
           "508": {name: "Math intervention", id: 508}
         }
       }, props || {});
-      return ReactDOM.render(<ProfileDetails {...mergedProps} />, el);
+      ReactDOM.render(<ProfileDetails {...mergedProps} />, el);
     }
   };
 

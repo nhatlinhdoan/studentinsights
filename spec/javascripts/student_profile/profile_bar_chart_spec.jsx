@@ -2,9 +2,9 @@ import SpecSugar from '../support/spec_sugar.jsx';
 
 describe('ProfileBarCharts', function() {
   const ProfileBarChart = window.shared.ProfileBarChart;
-  const createEl = window.shared.ReactHelpers.createEl;
   const merge = window.shared.ReactHelpers.merge;
-
+  const ReactDOM = window.ReactDOM;
+  
   const helpers = {
     renderInto: function(el, props) {
       const mergedProps = merge({
@@ -14,7 +14,7 @@ describe('ProfileBarCharts', function() {
         monthsBack: 48,
         nowMomentUTC: moment.utc('2017-02-02T13:23:15+00:00')
       }, props || {});
-      return ReactDOM.render(<ProfileBarChart {...mergedProps} />, el);
+      ReactDOM.render(<ProfileBarChart {...mergedProps} />, el);
     }
   };
 

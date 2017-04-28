@@ -1,15 +1,12 @@
 import SpecSugar from '../support/spec_sugar.jsx';
 
 describe('ServiceUploadsPage', function() {
-  const dom = window.shared.ReactHelpers.dom;
-  const createEl = window.shared.ReactHelpers.createEl;
-  const merge = window.shared.ReactHelpers.merge;
-
+  const ReactDOM = window.ReactDOM;
   const ServiceUploadsPage = window.shared.ServiceUploadsPage;
 
   const helpers = {
     renderInto: function(el, props) {
-      return ReactDOM.render(<ServiceUploadsPage {...props} />, el);
+      ReactDOM.render(<ServiceUploadsPage {...props} />, el);
     }
   };
 

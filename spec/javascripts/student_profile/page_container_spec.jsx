@@ -3,6 +3,7 @@ import SpecSugar from '../support/spec_sugar.jsx';
 
 describe('PageContainer', function() {
   const merge = window.shared.ReactHelpers.merge;
+  const ReactDOM = window.ReactDOM;
   const PageContainer = window.shared.PageContainer;
 
   const helpers = {
@@ -42,7 +43,7 @@ describe('PageContainer', function() {
         actions: helpers.createSpyActions(),
         api: helpers.createSpyApi()
       });
-      return ReactDOM.render(<PageContainer {...mergedProps} />, el);
+      ReactDOM.render(<PageContainer {...mergedProps} />, el);
     },
 
     takeNotesAndSave: function(el, uiParams) {
