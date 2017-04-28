@@ -1,13 +1,9 @@
+import {nowMoment, studentProfile} from './fixtures.jsx';
 import SpecSugar from '../support/spec_sugar.jsx';
-//= require ./fixtures
 
 describe('PageContainer', function() {
-  const dom = window.shared.ReactHelpers.dom;
-  const createEl = window.shared.ReactHelpers.createEl;
   const merge = window.shared.ReactHelpers.merge;
-
   const PageContainer = window.shared.PageContainer;
-  const Fixtures = window.shared.Fixtures;
 
   const helpers = {
     findColumns: function(el) {
@@ -39,8 +35,8 @@ describe('PageContainer', function() {
 
     renderInto: function(el, props) {
       const mergedProps = merge(props || {}, {
-        nowMomentFn: function() { return Fixtures.nowMoment; },
-        serializedData: Fixtures.studentProfile,
+        nowMomentFn: function() { return nowMoment; },
+        serializedData: studentProfile,
         queryParams: {},
         history: SpecSugar.history(),
         actions: helpers.createSpyActions(),

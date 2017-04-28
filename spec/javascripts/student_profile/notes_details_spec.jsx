@@ -1,17 +1,15 @@
+import {studentProfile} from './fixtures.jsx';
 import SpecSugar from '../support/spec_sugar.jsx';
-//= require ./fixtures
 
 describe('NotesDetails', function() {
-  const createEl = window.shared.ReactHelpers.createEl;
   const merge = window.shared.ReactHelpers.merge;
-
+  const ReactDOM = window.ReactDOM;
   const NotesDetails = window.shared.NotesDetails;
-  const Fixtures = window.shared.Fixtures;
 
   const helpers = {
     renderInto: function(el, props) {
       const mergedProps = merge(props || {}, {
-        eventNoteTypesIndex: Fixtures.studentProfile.eventNoteTypesIndex,
+        eventNoteTypesIndex: studentProfile.eventNoteTypesIndex,
         educatorsIndex: {},
         actions: {
           onClickSaveNotes: function () {},
@@ -33,7 +31,7 @@ describe('NotesDetails', function() {
         helpTitle: '',
       });
 
-      return ReactDOM.render(<NotesDetails {...mergedProps} />, el);
+      ReactDOM.render(<NotesDetails {...mergedProps} />, el);
     }
   };
 

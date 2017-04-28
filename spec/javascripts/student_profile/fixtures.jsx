@@ -1,3 +1,8 @@
+import {
+  serviceTypesIndex,
+  eventNoteTypesIndex
+} from '../fixtures/database_constants.jsx';
+
 // assuming static time for specs
 export const nowMoment = moment('2016-02-11T10:15:00');
 
@@ -105,8 +110,8 @@ export const currentEducator = {
 };
 
 export const studentProfile = {
-  "serviceTypesIndex": FixtureConstantIndexes.serviceTypesIndex,
-  "eventNoteTypesIndex": FixtureConstantIndexes.eventNoteTypesIndex,
+  "serviceTypesIndex": serviceTypesIndex,
+  "eventNoteTypesIndex": eventNoteTypesIndex,
   "dibels": [],
   "student": {
     "id": 23,
