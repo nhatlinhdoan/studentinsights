@@ -1,16 +1,16 @@
-import SpecSugar from '../support/spec_sugar.js';
+import SpecSugar from '../support/spec_sugar.jsx';
 //= require ./fixtures
 
 describe('NotesDetails', function() {
-  var createEl = window.shared.ReactHelpers.createEl;
-  var merge = window.shared.ReactHelpers.merge;
+  const createEl = window.shared.ReactHelpers.createEl;
+  const merge = window.shared.ReactHelpers.merge;
 
-  var NotesDetails = window.shared.NotesDetails;
-  var Fixtures = window.shared.Fixtures;
+  const NotesDetails = window.shared.NotesDetails;
+  const Fixtures = window.shared.Fixtures;
 
-  var helpers = {
+  const helpers = {
     renderInto: function(el, props) {
-      var mergedProps = merge(props || {}, {
+      const mergedProps = merge(props || {}, {
         eventNoteTypesIndex: Fixtures.studentProfile.eventNoteTypesIndex,
         educatorsIndex: {},
         actions: {
@@ -33,14 +33,14 @@ describe('NotesDetails', function() {
         helpTitle: '',
       });
 
-      return ReactDOM.render(createEl(NotesDetails, mergedProps), el);
+      return ReactDOM.render(<NotesDetails {...mergedProps} />, el);
     }
   };
 
   SpecSugar.withTestEl('high-level integration tests', function() {
     describe('educator can view restricted notes', function() {
       it('renders restricted notes button with zero notes', function() {
-        var el = this.testEl;
+        const el = this.testEl;
         helpers.renderInto(el, {
           currentEducator: { can_view_restricted_notes: true },
           student: { restricted_notes_count: 0 },
@@ -50,7 +50,7 @@ describe('NotesDetails', function() {
       });
 
       it('renders restricted notes button with 7 notes', function() {
-        var el = this.testEl;
+        const el = this.testEl;
         helpers.renderInto(el, {
           currentEducator: { can_view_restricted_notes: true },
           student: { restricted_notes_count: 7 },
@@ -62,7 +62,7 @@ describe('NotesDetails', function() {
 
     describe('educator can not view restricted notes', function() {
       it('does not render restricted notes button', function() {
-        var el = this.testEl;
+        const el = this.testEl;
         helpers.renderInto(el, {
           currentEducator: { can_view_restricted_notes: false },
           student: { restricted_notes_count: 0 },

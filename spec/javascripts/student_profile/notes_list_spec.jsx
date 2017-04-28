@@ -1,24 +1,24 @@
-import SpecSugar from '../support/spec_sugar.js';
+import SpecSugar from '../support/spec_sugar.jsx';
 //= require ./fixtures
 
 describe('NotesList', function() {
-  var dom = window.shared.ReactHelpers.dom;
-  var createEl = window.shared.ReactHelpers.createEl;
-  var merge = window.shared.ReactHelpers.merge;
+  const dom = window.shared.ReactHelpers.dom;
+  const createEl = window.shared.ReactHelpers.createEl;
+  const merge = window.shared.ReactHelpers.merge;
 
-  var NotesList = window.shared.NotesList;
-  var Fixtures = window.shared.Fixtures;
+  const NotesList = window.shared.NotesList;
+  const Fixtures = window.shared.Fixtures;
 
-  var helpers = {
+  const helpers = {
     renderInto: function(el, props) {
-      var mergedProps = merge(props || {}, {
+      const mergedProps = merge(props || {}, {
         feed: Fixtures.feedForTestingNotes,
         educatorsIndex: Fixtures.studentProfile.educatorsIndex,
         eventNoteTypesIndex: Fixtures.studentProfile.eventNoteTypesIndex,
         onSaveNote: jasmine.createSpy('onSaveNote'),
         onEventNoteAttachmentDeleted: jasmine.createSpy('onEventNoteAttachmentDeleted')
       });
-      return ReactDOM.render(createEl(NotesList, mergedProps), el);
+      return ReactDOM.render(<NotesList {...mergedProps} />, el);
     },
 
     noteTimestamps: function(el) {
@@ -30,10 +30,10 @@ describe('NotesList', function() {
 
   SpecSugar.withTestEl('high-level integration tests', function() {
     it('renders everything on the happy path', function() {
-      var el = this.testEl;
+      const el = this.testEl;
       helpers.renderInto(el);
 
-      var noteTimestamps = helpers.noteTimestamps(el);
+      const noteTimestamps = helpers.noteTimestamps(el);
       expect(_.first(noteTimestamps)).toBeGreaterThan(_.last(noteTimestamps));
       expect(_.sortBy(noteTimestamps).reverse()).toEqual(noteTimestamps);
       expect($(el).find('.NoteCard').length).toEqual(4);

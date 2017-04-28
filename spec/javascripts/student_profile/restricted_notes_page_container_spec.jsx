@@ -1,24 +1,24 @@
-import SpecSugar from '../support/spec_sugar.js';
+import SpecSugar from '../support/spec_sugar.jsx';
 //= require ./fixtures
 
 describe('RestrictedNotesPageContainer', function() {
-  var createEl = window.shared.ReactHelpers.createEl;
-  var merge = window.shared.ReactHelpers.merge;
+  const createEl = window.shared.ReactHelpers.createEl;
+  const merge = window.shared.ReactHelpers.merge;
 
-  var Fixtures = window.shared.Fixtures;
-  var RestrictedNotesPageContainer = window.shared.RestrictedNotesPageContainer;
+  const Fixtures = window.shared.Fixtures;
+  const RestrictedNotesPageContainer = window.shared.RestrictedNotesPageContainer;
 
-  var helpers = {
+  const helpers = {
     renderInto: function(el, props) {
-      var mergedProps = merge(props || {}, {
+      const mergedProps = merge(props || {}, {
         nowMomentFn: moment.utc,
         serializedData: Fixtures.studentProfile,
       });
-      return ReactDOM.render(createEl(RestrictedNotesPageContainer, mergedProps), el);
+      return ReactDOM.render(<RestrictedNotesPageContainer {...mergedProps} />, el);
     },
 
     createMockApi: function(){
-      var mockApi = jasmine.createSpyObj('api', ['saveNotes']);
+      const mockApi = jasmine.createSpyObj('api', ['saveNotes']);
       mockApi.saveNotes.and.returnValue(
         $.Deferred().resolve({
           id: 9999,
@@ -44,8 +44,8 @@ describe('RestrictedNotesPageContainer', function() {
 
   SpecSugar.withTestEl('high-level integration tests', function() {
     it('saves notes as restricted', function() {
-      var el = this.testEl;
-      var mockApi = helpers.createMockApi();
+      const el = this.testEl;
+      const mockApi = helpers.createMockApi();
       helpers.renderInto(el, {api: mockApi});
 
       helpers.takeNotesAndSave(el, {

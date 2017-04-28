@@ -1,15 +1,15 @@
-import SpecSugar from '../support/spec_sugar.js';
+import SpecSugar from '../support/spec_sugar.jsx';
 //= require ./fixtures
 
 describe('ServicesList', function() {
-  var createEl = window.shared.ReactHelpers.createEl;
-  var merge = window.shared.ReactHelpers.merge;
+  const createEl = window.shared.ReactHelpers.createEl;
+  const merge = window.shared.ReactHelpers.merge;
 
-  var ServicesList = window.shared.ServicesList;
-  var fromPair = window.shared.fromPair;
-  var Fixtures = window.shared.Fixtures;
+  const ServicesList = window.shared.ServicesList;
+  const fromPair = window.shared.fromPair;
+  const Fixtures = window.shared.Fixtures;
 
-  var helpers = {
+  const helpers = {
     emptyServicesFeed: function() {
       return { active: [], discontinued: [] };
     },
@@ -36,7 +36,7 @@ describe('ServicesList', function() {
     },
 
     renderInto: function(el, props) {
-      var mergedProps = merge({
+      const mergedProps = merge({
         servicesFeed: {
           active: [],
           discontinued: []
@@ -46,19 +46,19 @@ describe('ServicesList', function() {
         discontinueServiceRequests: {},
         onClickDiscontinueService: jasmine.createSpy('onClickDiscontinueService')
       }, props || {});
-      return ReactDOM.render(createEl(ServicesList, mergedProps), el);
+      return ReactDOM.render(<ServicesList {...mergedProps} />, el);
     }
   };
 
   SpecSugar.withTestEl('high-level integration tests', function() {
     it('renders message when no services', function() {
-      var el = this.testEl;
+      const el = this.testEl;
       helpers.renderInto(el, { servicesFeed: helpers.emptyServicesFeed() });
       expect(el).toContainText('No services');
     });
 
     it('renders everything on the happy path', function() {
-      var el = this.testEl;
+      const el = this.testEl;
       helpers.renderInto(el, { servicesFeed: helpers.oneActiveServiceFeed() });
       expect(el).toContainText('Reading intervention');
       expect(el).toContainText('With');
@@ -67,7 +67,7 @@ describe('ServicesList', function() {
     });
 
     it('asks for confirmation before discontinuing', function() {
-      var el = this.testEl;
+      const el = this.testEl;
       helpers.renderInto(el, { servicesFeed: helpers.oneActiveServiceFeed() });
       $(el).find('.btn').click();
       expect(el).toContainText('Confirm');
@@ -75,8 +75,8 @@ describe('ServicesList', function() {
     });
 
     it('shows a message when request in progress', function() {
-      var el = this.testEl;
-      var service = helpers.fixtureService();
+      const el = this.testEl;
+      const service = helpers.fixtureService();
       helpers.renderInto(el, {
         servicesFeed: helpers.oneActiveServiceFeed(),
         discontinueServiceRequests: fromPair(service.id, 'pending')
@@ -85,8 +85,8 @@ describe('ServicesList', function() {
     });
 
     it('renders discontinued services correctly', function() {
-      var el = this.testEl;
-      var discontinuedService = merge(helpers.fixtureService(), {
+      const el = this.testEl;
+      const discontinuedService = merge(helpers.fixtureService(), {
         discontinued_by_educator_id: 1,
         discontinued_recorded_at: "2016-04-05T01:43:15.256Z"
       });

@@ -1,15 +1,15 @@
 //= require ./fixtures
-import SpecSugar from '../support/spec_sugar.js';
+import SpecSugar from '../support/spec_sugar.jsx';
 import TakeNotes from '../../../app/assets/javascripts/student_profile/take_notes.jsx';
 
 
 describe('TakeNotes', function() {
-  var merge = window.shared.ReactHelpers.merge;
-  var Fixtures = window.shared.Fixtures;
+  const merge = window.shared.ReactHelpers.merge;
+  const Fixtures = window.shared.Fixtures;
 
-  var helpers = {
+  const helpers = {
     renderInto: function(el, props) {
-      var mergedProps = merge(props || {}, {
+      const mergedProps = merge(props || {}, {
         nowMoment: Fixtures.nowMoment,
         eventNoteTypesIndex: Fixtures.studentProfile.eventNoteTypesIndex,
         currentEducator: Fixtures.currentEducator,
@@ -23,7 +23,7 @@ describe('TakeNotes', function() {
 
   SpecSugar.withTestEl('high-level integration tests', function() {
     it('renders note-taking area', function() {
-      var el = this.testEl;
+      const el = this.testEl;
       helpers.renderInto(el);
 
       expect(el).toContainText('February 11, 2016');

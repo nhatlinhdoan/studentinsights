@@ -1,15 +1,15 @@
-import SpecSugar from '../support/spec_sugar.js';
+import SpecSugar from '../support/spec_sugar.jsx';
 //= require ./fixtures
 
 describe('PageContainer', function() {
-  var dom = window.shared.ReactHelpers.dom;
-  var createEl = window.shared.ReactHelpers.createEl;
-  var merge = window.shared.ReactHelpers.merge;
+  const dom = window.shared.ReactHelpers.dom;
+  const createEl = window.shared.ReactHelpers.createEl;
+  const merge = window.shared.ReactHelpers.merge;
 
-  var PageContainer = window.shared.PageContainer;
-  var Fixtures = window.shared.Fixtures;
+  const PageContainer = window.shared.PageContainer;
+  const Fixtures = window.shared.Fixtures;
 
-  var helpers = {
+  const helpers = {
     findColumns: function(el) {
       return $(el).find('.summary-container > div');
     },
@@ -38,7 +38,7 @@ describe('PageContainer', function() {
     },
 
     renderInto: function(el, props) {
-      var mergedProps = merge(props || {}, {
+      const mergedProps = merge(props || {}, {
         nowMomentFn: function() { return Fixtures.nowMoment; },
         serializedData: Fixtures.studentProfile,
         queryParams: {},
@@ -46,7 +46,7 @@ describe('PageContainer', function() {
         actions: helpers.createSpyActions(),
         api: helpers.createSpyApi()
       });
-      return ReactDOM.render(createEl(PageContainer, mergedProps), el);
+      return ReactDOM.render(<PageContainer {...mergedProps} />, el);
     },
 
     takeNotesAndSave: function(el, uiParams) {
@@ -57,8 +57,8 @@ describe('PageContainer', function() {
     },
 
     editNoteAndSave: function(el, uiParams) {
-      var $noteCard = $(el).find('.NotesList .NoteCard').first();
-      var $text = $noteCard.find('.note-text');
+      const $noteCard = $(el).find('.NotesList .NoteCard').first();
+      const $text = $noteCard.find('.note-text');
       $text.html(uiParams.text);
       React.addons.TestUtils.Simulate.input($text.get(0));
       React.addons.TestUtils.Simulate.blur($text.get(0));
@@ -75,7 +75,7 @@ describe('PageContainer', function() {
 
   SpecSugar.withTestEl('integration tests', function() {
     it('renders everything on the happy path', function() {
-      var el = this.testEl;
+      const el = this.testEl;
       helpers.renderInto(el);
 
       expect(el).toContainText('Daisy Poppins');
@@ -83,7 +83,7 @@ describe('PageContainer', function() {
       expect($(el).find('.Sparkline').length).toEqual(9);
       expect($(el).find('.InterventionsDetails').length).toEqual(1);
 
-      var interventionLists = helpers.interventionSummaryLists(el);
+      const interventionLists = helpers.interventionSummaryLists(el);
       expect(interventionLists.length).toEqual(3);
       expect(interventionLists[0]).toContainText('Reg Ed');
       expect(interventionLists[0]).toContainText('Homeroom 102');
@@ -92,7 +92,7 @@ describe('PageContainer', function() {
     });
 
     it('opens dialog when clicking Take Notes button', function() {
-      var el = this.testEl;
+      const el = this.testEl;
       helpers.renderInto(el);
 
       $(el).find('.btn.take-notes').click();
@@ -101,7 +101,7 @@ describe('PageContainer', function() {
     });
 
     it('opens dialog when clicking Record Service button', function() {
-      var el = this.testEl;
+      const el = this.testEl;
       helpers.renderInto(el);
 
       $(el).find('.btn.record-service').click();
@@ -110,8 +110,8 @@ describe('PageContainer', function() {
     });
 
     it('can save notes for SST meetings, mocking the action handlers', function() {
-      var el = this.testEl;
-      var component = helpers.renderInto(el);
+      const el = this.testEl;
+      const component = helpers.renderInto(el);
       helpers.takeNotesAndSave(el, {
         eventNoteTypeText: 'SST Meeting',
         text: 'hello!'
@@ -125,8 +125,8 @@ describe('PageContainer', function() {
     });
 
     it('can edit notes for SST meetings, mocking the action handlers', function() {
-      var el = this.testEl;
-      var component = helpers.renderInto(el);
+      const el = this.testEl;
+      const component = helpers.renderInto(el);
 
       helpers.editNoteAndSave(el, {
         eventNoteTypeText: 'SST Meeting',
@@ -141,8 +141,8 @@ describe('PageContainer', function() {
     });
 
     it('verifies that the educator name is in the correct format', function() {
-      var el = this.testEl;
-      var component = helpers.renderInto(el, {});
+      const el = this.testEl;
+      const component = helpers.renderInto(el, {});
 
       // Simulate that the server call is still pending
       component.props.api.saveService.and.returnValue($.Deferred());
@@ -183,9 +183,9 @@ describe('PageContainer', function() {
     // });
 
     it('#mergedDiscontinueService', function() {
-      var el = this.testEl;
-      var instance = helpers.renderInto(el);
-      var updatedState = instance.mergedDiscontinueService(instance.state, 312, 'foo');
+      const el = this.testEl;
+      const instance = helpers.renderInto(el);
+      const updatedState = instance.mergedDiscontinueService(instance.state, 312, 'foo');
       expect(Object.keys(updatedState)).toEqual(Object.keys(instance.state));
       expect(updatedState.requests.discontinueService).toEqual({ 312: 'foo' });
       expect(instance.mergedDiscontinueService(updatedState, 312, null)).toEqual(instance.state);

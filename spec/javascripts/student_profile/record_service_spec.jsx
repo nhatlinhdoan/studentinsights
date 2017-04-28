@@ -1,17 +1,17 @@
-import SpecSugar from '../support/spec_sugar.js';
+import SpecSugar from '../support/spec_sugar.jsx';
 
 //= require ./fixtures
 
 describe('RecordService', function() {
-  var createEl = window.shared.ReactHelpers.createEl;
-  var merge = window.shared.ReactHelpers.merge;
+  const createEl = window.shared.ReactHelpers.createEl;
+  const merge = window.shared.ReactHelpers.merge;
 
-  var RecordService = window.shared.RecordService;
-  var Fixtures = window.shared.Fixtures;
+  const RecordService = window.shared.RecordService;
+  const Fixtures = window.shared.Fixtures;
 
-  var helpers = {
+  const helpers = {
     renderInto: function(el, props) {
-      var mergedProps = merge(props || {}, {
+      const mergedProps = merge(props || {}, {
         studentFirstName: 'Tamyra',
         serviceTypesIndex: Fixtures.studentProfile.serviceTypesIndex,
         educatorsIndex: Fixtures.studentProfile.educatorsIndex,
@@ -22,7 +22,7 @@ describe('RecordService', function() {
         requestState: null,
         studentId: 1
       });
-      return ReactDOM.render(createEl(RecordService, mergedProps), el);
+      return ReactDOM.render(<RecordService {...mergedProps} />, el);
     },
 
     serviceTypes: function(el) {
@@ -38,7 +38,7 @@ describe('RecordService', function() {
 
   SpecSugar.withTestEl('integration tests', function() {
     it('renders dialog for recording services', function() {
-      var el = this.testEl;
+      const el = this.testEl;
       helpers.renderInto(el);
 
       expect(el).toContainText('Which service?');
