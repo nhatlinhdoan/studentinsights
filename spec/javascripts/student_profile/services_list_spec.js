@@ -2,7 +2,6 @@ import SpecSugar from '../support/spec_sugar.js';
 //= require ./fixtures
 
 describe('ServicesList', function() {
-  var dom = window.shared.ReactHelpers.dom;
   var createEl = window.shared.ReactHelpers.createEl;
   var merge = window.shared.ReactHelpers.merge;
 

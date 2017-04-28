@@ -1,12 +1,10 @@
 import SpecSugar from '../support/spec_sugar.js';
 //= require ./fixtures
 
-describe('StudentProfilePage', function() {
+describe('StudentProfilePage integration test', function() {
   var createEl = window.shared.ReactHelpers.createEl;
-
   var Fixtures = window.shared.Fixtures;
   var PageContainer = window.shared.PageContainer;
-  var StudentProfilePage = window.shared.StudentProfilePage;
 
   var helpers = {
     renderStudentProfilePage: function(el, grade, dibels, absencesCount) {
@@ -30,7 +28,7 @@ describe('StudentProfilePage', function() {
         queryParams: {},
         history: SpecSugar.history()
       };
-      return ReactDOM.render(createEl(PageContainer, mergedProps), el);
+      window.ReactDOM.render(createEl(PageContainer, mergedProps), el);
     }
   };
 

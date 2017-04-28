@@ -1,17 +1,17 @@
-import SpecSugar from '../support/spec_sugar.js';
 //= require ./fixtures
+import SpecSugar from '../support/spec_sugar.js';
+
 
 describe('StudentProfileHeader', function() {
-  var createEl = window.shared.ReactHelpers.createEl;
   var merge = window.shared.ReactHelpers.merge;
-
+  var ReactDOM = window.ReactDOM;
   var StudentProfileHeader = window.shared.StudentProfileHeader;
   var Fixtures = window.shared.Fixtures;
 
   var helpers = {
     renderActiveStudent: function(el, props) {
       var mergedProps = merge(props || {}, { student: Fixtures.studentProfile.student });
-      return ReactDOM.render(createEl(StudentProfileHeader, mergedProps), el);
+      ReactDOM.render(<StudentProfileHeader {...mergedProps} />, el);
     },
 
     renderTransferredStudent: function(el, props) {
@@ -19,7 +19,7 @@ describe('StudentProfileHeader', function() {
       this_student['enrollment_status'] = 'Transferred';
 
       var mergedProps = merge(props || {}, { student: this_student });
-      return ReactDOM.render(createEl(StudentProfileHeader, mergedProps), el);
+      ReactDOM.render(<StudentProfileHeader {...mergedProps} />, el);
     }
 
   };

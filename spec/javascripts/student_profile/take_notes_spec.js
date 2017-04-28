@@ -4,45 +4,8 @@ import TakeNotes from '../../../app/assets/javascripts/student_profile/take_note
 
 
 describe('TakeNotes', function() {
-  var createEl = window.shared.ReactHelpers.createEl;
   var merge = window.shared.ReactHelpers.merge;
-
-  
   var Fixtures = window.shared.Fixtures;
-  var eventNotesFixture = [
-    {"id":4,
-      "student_id":24,
-      "educator_id":1,
-      "event_note_type_id":301,
-      "text":"cool!",
-      "recorded_at":"2016-02-15T18:42:45.937Z",
-      "created_at":"2016-02-15T18:42:45.943Z",
-      "updated_at":"2016-02-15T18:42:45.943Z"},
-    {"id":5,
-      "student_id":24,
-      "educator_id":1,
-      "event_note_type_id":301,
-      "text":"this tiss thie this tiss thie this tiss thie this tiss thie this tiss thie this tiss thie this tiss thie ",
-      "recorded_at":"2016-02-15T20:01:02.086Z",
-      "created_at":"2016-02-15T20:01:02.087Z",
-      "updated_at":"2016-02-15T20:01:02.087Z"},
-    {"id":6,
-      "student_id":24,
-      "educator_id":1,
-      "event_note_type_id":5,
-      "text":"okay!",
-      "recorded_at":"2016-02-15T20:03:28.232Z",
-      "created_at":"2016-02-15T20:03:28.233Z",
-      "updated_at":"2016-02-15T20:03:28.233Z"},
-    {"id":7,
-      "student_id":24,
-      "educator_id":1,
-      "event_note_type_id":2,
-      "text":"yep :)",
-      "recorded_at":"2016-02-15T20:03:36.699Z",
-      "created_at":"2016-02-15T20:03:36.700Z",
-      "updated_at":"2016-02-15T20:03:36.700Z"}
-  ];
 
   var helpers = {
     renderInto: function(el, props) {
@@ -54,7 +17,7 @@ describe('TakeNotes', function() {
         onCancel: jasmine.createSpy('onCancel'),
         requestState: null
       });
-      return ReactDOM.render(createEl(TakeNotes, mergedProps), el);
+      window.ReactDOM.render(<TakeNotes {...mergedProps} />, el);
     }
   };
 
