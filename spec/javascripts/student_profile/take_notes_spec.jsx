@@ -1,18 +1,21 @@
-//= require ./fixtures
+import {
+  studentProfile,
+  nowMoment,
+  currentEducator
+} from './fixtures.jsx';
 import SpecSugar from '../support/spec_sugar.jsx';
 import TakeNotes from '../../../app/assets/javascripts/student_profile/take_notes.jsx';
 
 
 describe('TakeNotes', function() {
   const merge = window.shared.ReactHelpers.merge;
-  const Fixtures = window.shared.Fixtures;
 
   const helpers = {
     renderInto: function(el, props) {
       const mergedProps = merge(props || {}, {
-        nowMoment: Fixtures.nowMoment,
-        eventNoteTypesIndex: Fixtures.studentProfile.eventNoteTypesIndex,
-        currentEducator: Fixtures.currentEducator,
+        nowMoment: nowMoment,
+        eventNoteTypesIndex: studentProfile.eventNoteTypesIndex,
+        currentEducator: currentEducator,
         onSave: jasmine.createSpy('onSave'),
         onCancel: jasmine.createSpy('onCancel'),
         requestState: null

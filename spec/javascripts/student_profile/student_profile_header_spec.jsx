@@ -1,4 +1,4 @@
-//= require ./fixtures
+import {studentProfile} from './fixtures.jsx';
 import SpecSugar from '../support/spec_sugar.jsx';
 
 
@@ -6,16 +6,15 @@ describe('StudentProfileHeader', function() {
   const merge = window.shared.ReactHelpers.merge;
   const ReactDOM = window.ReactDOM;
   const StudentProfileHeader = window.shared.StudentProfileHeader;
-  const Fixtures = window.shared.Fixtures;
 
   const helpers = {
     renderActiveStudent: function(el, props) {
-      const mergedProps = merge(props || {}, { student: Fixtures.studentProfile.student });
+      const mergedProps = merge(props || {}, { student: studentProfile.student });
       ReactDOM.render(<StudentProfileHeader {...mergedProps} />, el);
     },
 
     renderTransferredStudent: function(el, props) {
-      const this_student = Fixtures.studentProfile.student;
+      const this_student = studentProfile.student;
       this_student['enrollment_status'] = 'Transferred';
 
       const mergedProps = merge(props || {}, { student: this_student });
@@ -28,7 +27,7 @@ describe('StudentProfileHeader', function() {
     it('renders note-taking area with homeroom', function() {
       const el = this.testEl;
       helpers.renderActiveStudent(el);
-      const yearsOld = moment().diff(Fixtures.studentProfile.student.date_of_birth, 'years'); // TODO (ARS): mock moment.utc() for spec
+      const yearsOld = moment().diff(studentProfile.student.date_of_birth, 'years'); // TODO (ARS): mock moment.utc() for spec
                                                                                            // so we don't have to calculate this
 
       expect(el).toContainText('Daisy Poppins');

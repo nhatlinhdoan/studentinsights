@@ -1,14 +1,13 @@
-//= require ./fixtures
+import {studentProfile, nowMoment} from './fixtures.jsx';
 import SpecSugar from '../support/spec_sugar.jsx';
 
 describe('StudentProfilePage integration test', function() {
-  const createEl = window.shared.ReactHelpers.createEl;
-  const Fixtures = window.shared.Fixtures;
+  const ReactDOM = window.ReactDOM;
   const PageContainer = window.shared.PageContainer;
 
   const helpers = {
     renderStudentProfilePage: function(el, grade, dibels, absencesCount) {
-      const serializedData = _.cloneDeep(Fixtures.studentProfile);
+      const serializedData = _.cloneDeep(studentProfile);
       if (grade !== undefined) {
         serializedData["student"]["grade"] = grade;
       }
@@ -24,11 +23,11 @@ describe('StudentProfilePage integration test', function() {
 
       const mergedProps = {
         serializedData: serializedData,
-        nowMomentFn: function() { return Fixtures.nowMoment; },
+        nowMomentFn: function() { return nowMoment; },
         queryParams: {},
         history: SpecSugar.history()
       };
-      window.ReactDOM.render(<PageContainer {...mergedProps} />, el);
+      ReactDOM.render(<PageContainer {...mergedProps} />, el);
     }
   };
 

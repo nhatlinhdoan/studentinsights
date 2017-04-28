@@ -1,4 +1,4 @@
-import Fixtures from './fixtures.jsx';
+import {studentProfile} from './fixtures.jsx';
 import SpecSugar from '../support/spec_sugar.jsx';
 
 describe('NoteCard', function() {
@@ -18,11 +18,11 @@ describe('NoteCard', function() {
         onSave: jasmine.createSpy('onSave'),
         eventNoteId: 1,
         eventNoteTypeId: 1,
-        educatorsIndex: Fixtures.studentProfile.educatorsIndex,
+        educatorsIndex: studentProfile.educatorsIndex,
         attachments: []
       });
 
-      ReactDOM.render(<NoteCard {...mergedProps} />, el);
+      return ReactDOM.render(<NoteCard {...mergedProps} />, el); //eslint-disable-line react/no-render-return-value
     },
 
     editNoteAndSave: function(el, uiParams) {
