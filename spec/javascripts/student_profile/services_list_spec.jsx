@@ -1,13 +1,12 @@
+import {studentProfile} from './fixtures.jsx';
 import SpecSugar from '../support/spec_sugar.jsx';
-//= require ./fixtures
+
 
 describe('ServicesList', function() {
-  const createEl = window.shared.ReactHelpers.createEl;
   const merge = window.shared.ReactHelpers.merge;
-
+  const ReactDOM = window.ReactDOM;
   const ServicesList = window.shared.ServicesList;
   const fromPair = window.shared.fromPair;
-  const Fixtures = window.shared.Fixtures;
 
   const helpers = {
     emptyServicesFeed: function() {
@@ -41,12 +40,12 @@ describe('ServicesList', function() {
           active: [],
           discontinued: []
         },
-        educatorsIndex: Fixtures.studentProfile.educatorsIndex,
-        serviceTypesIndex: Fixtures.studentProfile.serviceTypesIndex,
+        educatorsIndex: studentProfile.educatorsIndex,
+        serviceTypesIndex: studentProfile.serviceTypesIndex,
         discontinueServiceRequests: {},
         onClickDiscontinueService: jasmine.createSpy('onClickDiscontinueService')
       }, props || {});
-      return ReactDOM.render(<ServicesList {...mergedProps} />, el);
+      ReactDOM.render(<ServicesList {...mergedProps} />, el);
     }
   };
 

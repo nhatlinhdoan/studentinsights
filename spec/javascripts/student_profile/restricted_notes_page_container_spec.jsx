@@ -1,20 +1,19 @@
+import {studentProfile} from './fixtures.jsx';
 import SpecSugar from '../support/spec_sugar.jsx';
-//= require ./fixtures
+
 
 describe('RestrictedNotesPageContainer', function() {
-  const createEl = window.shared.ReactHelpers.createEl;
   const merge = window.shared.ReactHelpers.merge;
-
-  const Fixtures = window.shared.Fixtures;
+  const ReactDOM = window.ReactDOM;
   const RestrictedNotesPageContainer = window.shared.RestrictedNotesPageContainer;
 
   const helpers = {
     renderInto: function(el, props) {
       const mergedProps = merge(props || {}, {
         nowMomentFn: moment.utc,
-        serializedData: Fixtures.studentProfile,
+        serializedData: studentProfile
       });
-      return ReactDOM.render(<RestrictedNotesPageContainer {...mergedProps} />, el);
+      ReactDOM.render(<RestrictedNotesPageContainer {...mergedProps} />, el);
     },
 
     createMockApi: function(){

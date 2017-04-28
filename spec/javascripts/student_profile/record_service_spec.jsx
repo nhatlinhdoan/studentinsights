@@ -1,28 +1,30 @@
+import {
+  studentProfile,
+  nowMoment,
+  currentEducator
+} from './fixtures.jsx';
 import SpecSugar from '../support/spec_sugar.jsx';
 
-//= require ./fixtures
 
 describe('RecordService', function() {
-  const createEl = window.shared.ReactHelpers.createEl;
   const merge = window.shared.ReactHelpers.merge;
-
+  const ReactDOM = window.ReactDOM;
   const RecordService = window.shared.RecordService;
-  const Fixtures = window.shared.Fixtures;
-
+  
   const helpers = {
     renderInto: function(el, props) {
       const mergedProps = merge(props || {}, {
         studentFirstName: 'Tamyra',
-        serviceTypesIndex: Fixtures.studentProfile.serviceTypesIndex,
-        educatorsIndex: Fixtures.studentProfile.educatorsIndex,
-        nowMoment: Fixtures.nowMoment,
-        currentEducator: Fixtures.currentEducator,
+        serviceTypesIndex: studentProfile.serviceTypesIndex,
+        educatorsIndex: studentProfile.educatorsIndex,
+        nowMoment: nowMoment,
+        currentEducator: currentEducator,
         onSave: jasmine.createSpy('onSave'),
         onCancel: jasmine.createSpy('onCancel'),
         requestState: null,
         studentId: 1
       });
-      return ReactDOM.render(<RecordService {...mergedProps} />, el);
+      ReactDOM.render(<RecordService {...mergedProps} />, el);
     },
 
     serviceTypes: function(el) {
