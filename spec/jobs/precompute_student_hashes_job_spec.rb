@@ -23,7 +23,7 @@ RSpec.describe PrecomputeStudentHashesJob do
       it 'creates a doc with the correct key and correct data inside' do
         expect(outcome.size).to eq 1
         expect(outcome.first.key.split(':')[0]).to eq "short"
-        expect(outcome.first.key.split(':')[1]).to eq "1498104000"
+        expect(outcome.first.key.split(':')[1]).to eq "1498107600"
         expect(outcome.first.key.split(':')[2]).to eq "1"
 
         expect(first_json_blob_key).to eq "student_hashes"
